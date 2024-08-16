@@ -39,9 +39,7 @@
     flex-direction: column;
 
 }
-.sidebar .recent:hover{
-   background-color: beige;
-}
+
 .sidebar .recent-title{
     margin-top:30px;
     margin-bottom:20px;
@@ -68,3 +66,19 @@
     padding-right:10px;
     cursor: pointer;
 }
+
+.top-heading{
+    position:relative;
+    display:flex;
+    width:400vh;
+}
+.top-heading .App-header{
+    position:absolute;
+    top:0;
+    left:40%;
+    display:flex;
+    position:fixed;
+}
+
+  
+  
