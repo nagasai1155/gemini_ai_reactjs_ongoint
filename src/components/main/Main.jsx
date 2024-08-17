@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../../assets/assets'
 import './Main.css'
+import { Context } from '../../context/Context';
 export const Main = () => {
+
+  const { onSent,
+    recentPrompt,
+    showResult,
+    loading,
+    resultData,
+    setInput,
+    input
+  } = useContext(Context);
+
   return (
     <>
     <div className='main'>
@@ -14,8 +25,9 @@ export const Main = () => {
         </div>
         <div className='main-container'>
            
+      {!showResult?<>
         <div className="greet">
-              <p><span>Hello, Dev.</span></p>
+              <p><span>Hello, Vertoe</span></p>
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
@@ -36,14 +48,27 @@ export const Main = () => {
                 <img src={assets.code_icon} alt="" />
               </div>
             </div>
+      </>:<div className='result'>
+        <div className='result-title'>
+          <img src={assets.user_icon} alt='no icon found'/>
+          <p>recentprompt:{recentPrompt}</p>
+
+        </div>
+        <div className='result-data'>
+          <img src={assets.gemini_icon} alt='no icon found'/>
+          <p dangerouslySetInnerHTML={{__html:resultData}}></p>
+          </div>
+              
+          
+          </div>}
 
             <div className="main-bottom">
           <div className="search-box">
-            <input  type="text" placeholder='Enter a prompt here' />
+            <input  type="text" placeholder='Enter a prompt here' onChange={(e)=>setInput(e.target.value)} value={input}/>
             <div>
               <img src={assets.gallery_icon} width={30} alt="" />
               <img src={assets.mic_icon} width={30} alt="" />
-               <img src={assets.send_icon} width={30} alt="" /> 
+               <img src={assets.send_icon} onClick={()=>{onSent()}} width={30} alt="" /> 
             </div>
           </div>
           <p className="bottom-info">

@@ -26,3 +26,4 @@ dist-ssr
 
 //1.font used from the outfit font link and imported in the index.css file and used the fontstyles;
 //2.api from :googlegemini ai free;
+// const API_KEY = "AIzaSyA1u8f4NWqNtCwdO2riArbt-ARAndP73Os";
