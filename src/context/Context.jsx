@@ -23,6 +23,7 @@ const ContextProvider = (props) => {
      setLoading(true);
      setShowResult(true);
      setRecentPrompt(input);
+     setPrevPrompts((prev)=>{[...prev,input]});
      const response = await run(input); 
     let responseArray = response.split("**");
     let newArray;
@@ -39,7 +40,7 @@ const ContextProvider = (props) => {
      let naga = newArray2.split(" ");
      for(let i=0; i<naga.length; i++){
        const nextword = naga[i];
-       delayPara(i,nextword+"");
+       delayPara(i,nextword+"  ");
      }
      setLoading(false);
      setInput("");
